@@ -6,5 +6,7 @@
  
 ### Task requirement for this Project includes:
 #### Creation of an VPC, Subnets,IGW and Natgateways.
-#### An autoscaling group (t3. medium EC2 instancs across two private subnets in different AZs, Minimum 2, maximum 5)
-####
+#### Creation of an autoscaling group (t3. medium EC2 instancs across two private subnets in different AZs, Minimum 2, maximum 5)
+#### Creation of Security group to allow inbound HTTP traffic  from loadbalancers 
+Creation of launch template 
+
