@@ -10,3 +10,4 @@
 #### Creation of Security group to allow inbound HTTP traffic  from loadbalancers 
 Creation of launch template 
 
+❮img src="" width="100" ❯
