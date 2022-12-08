@@ -1,5 +1,5 @@
 Description: >
-    Uviekugbere Theophilus, Project Udagram
+    Uviekugbere Theophilus, Jules Webapplication 
     This template deploys a loadbalancer and it's dependencies needed to host my WebApplication Udagram!.
     The contains, security groups, autoscaling group with it's required Launchconconfiguration,
     Targetgroups and IAM role for my compute instances 
@@ -32,7 +32,7 @@ Resources:
     Properties:
       Path: "/" 
       Roles: 
-        - !Ref UdacityS3ReadOnlyEC2
+        - !Ref S3ReadOnlyEC2
 
   LBSecGroup:
     Type: AWS::EC2::SecurityGroup
@@ -83,7 +83,7 @@ Resources:
           sudo apt-get install apache2 -y
           sudo systemctl start apache2.service
           cd /var/www/html
-          echo "It Works! Udagram, Udacity " >index.html          
+          echo "It Works! Jules-Webapplication" >index.html          
       ImageId: ami-0747bdcabd34c712a
       
       SecurityGroups:
