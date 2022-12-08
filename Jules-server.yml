@@ -10,7 +10,7 @@ Parameters:
         Description: A name that will be prefixed to resource names to enable easy identification
         Type: String
 Resources:
-  UdacityS3ReadOnlyEC2:
+  S3ReadOnlyEC2:
     Type: 'AWS::IAM::Role'
     Properties:
       ManagedPolicyArns: 
