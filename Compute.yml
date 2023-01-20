@@ -1,5 +1,5 @@
 Description: >
-    Uviekugbere Theophilus, Project Udagram
+    Uviekugbere Theophilus, Jules Webapplication 
     This template deploys a loadbalancer and it's dependencies needed to host my WebApplication Udagram!.
     The contains, security groups, autoscaling group with it's required Launchconconfiguration,
     Targetgroups and IAM role for my compute instances 
