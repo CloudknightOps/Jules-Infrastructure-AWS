@@ -10,13 +10,30 @@ Parameters:
         Description: A name that will be prefixed to resource names to enable easy identification
         Type: String
 Resources:
-
-  ProfileWithRolesForOurApp:
+  UdacityS3ReadOnlyEC2:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      ManagedPolicyArns: 
+        - "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+        - "arn:aws:iam::aws:policy/AmazonSSMFullAccess"
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+              - ec2.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Path: "/"
+  
+  ProfileWithRolesForApp:
     Type: AWS::IAM::InstanceProfile
-    Properties: 
-      Roles:
-        - 
-        !Ref
+    Properties:
+      Path: "/" 
+      Roles: 
+        - !Ref UdacityS3ReadOnlyEC2
+
   LBSecGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -62,11 +79,13 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
-         
-      # ToDo: AMI ID of Ubuntu Linux machine. Too get one, try creating a VM from the web console. 
-      ImageId: ami-08d4ac5b634553e16
-      # ToDo: Change the key-pair name, as applicable to you. 
-      KeyName: EmployeeKey
+          sudo apt-get update -y
+          sudo apt-get install apache2 -y
+          sudo systemctl start apache2.service
+          cd /var/www/html
+          echo "It Works! Our Servers are UP " >index.html          
+      ImageId: ami-0747bdcabd34c712a
+      
       SecurityGroups:
       - Ref: WebServerSecGroup
       InstanceType: t3.medium
@@ -79,10 +98,10 @@ Resources:
     Properties:
       VPCZoneIdentifier:
       - Fn::ImportValue: 
-          !Sub "${EnvironmentName}-PUB-NETS"
+          !Sub "${EnvironmentName}-PRIV-NETS"
       LaunchConfigurationName:
         Ref: WebAppLaunchConfig
-      MinSize: '2'
+      MinSize: '4'
       MaxSize: '5'
       TargetGroupARNs:
       - Ref: WebAppTargetGroup
