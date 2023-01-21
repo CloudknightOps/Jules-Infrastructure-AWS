@@ -3,7 +3,7 @@ This project focuses on offering a step-by-step process for building a fault-tol
 The Compute cloudFormation template deploys a load balancer and its dependencies needed to host the Jule-web application. The compute template includes security groups, an autoscaling group with its required launch configuration, target groups, and an IAM role for the compute instances.
 
 ## Prerequisites
-- AWS Account 
+- AWS account with appropriate permissions to create and manage resources
 - Iam User with the appropriate Permissions and Programmatic Acess 
 - AWS CLI installed and configured with access keys
 - AWS CloudFormation templates (Network and Compute)
