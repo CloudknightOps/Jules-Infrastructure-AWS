@@ -29,9 +29,36 @@ The Network infrastructure cloudFormation script creates a VPC with a pair of pu
 - `compute-parameters.json`
 - `network-parameters.json`
 
+
+## Network Script Parameters
+- `EnvironmentName`: An environment name that will be prefixed to resource names
+- `VpcCIDR`: Please enter the IP range (CIDR notation) for this VPC (default: `192.64.0.0/24`)
+- `PublicSubnet1CIDR`: Please enter the IP range (CIDR notation) for the public subnet in the first Availability Zone (default: `192.64.0.8/28`)
+- `PublicSubnet2CIDR`: Please enter the IP range (CIDR notation) for the public subnet in the second Availability Zone (default: `192.64.0.36/28`)
+- `PrivateSubnet1CIDR`: Please enter the IP range (CIDR notation) for the private subnet in the first Availability Zone (default: `192.64.0.76/28`)
+- `PrivateSubnet2CIDR`: Please enter the IP range (CIDR notation) for the private subnet in the second Availability Zone (default: `192.64.0.146/28`)
+
+##  Network Resources
+- `VPC`: A VPC with the specified CIDR range
+- `InternetGateway`: An Internet Gateway
+- `InternetGatewayAttachment`: Attaches the Internet Gateway to the VPC
+- `PublicSubnet1`: A public subnet in the first Availability Zone
+- `PublicSubnet2`: A public subnet in the second Availability Zone
+- `PrivateSubnet1`: A private subnet in the first Availability Zone
+- `PrivateSubnet2`: A private subnet in the second Availability Zone
+- `NatGateway1EIP`: Elastic IP for the first NAT Gateway
+- `NatGateway2EIP`: Elastic IP for the second NAT Gateway
+- `NatGateway1`: A NAT Gateway in the first Availability Zone
+- `NatGateway2`: A NAT Gateway in the second Availability Zone
+- `PublicRouteTable`: A route table for the public subnets
+- `PrivateRouteTable`: A route table for the private subnets
+
+
+
+
 ##  Compute Resources
 
-The template creates the following resources:
+The Compute template creates the following resources:
 
 - **UdacityS3ReadOnlyEC2**: An IAM role that allows read-only access to Amazon S3 and full access to Amazon SSM.
 - **ProfileWithRolesForApp**: An IAM instance profile that references the UdacityS3ReadOnlyEC2 role.
