@@ -1,10 +1,17 @@
 # Jules-Infrastructure-AWS-WebApplication
+This project focuses on offering a step-by-step process for building a fault-tolerant Web application architecture on AWS using CloudFormation and the AWS CLI. The scripts are split into two sections: one for establishing the network infrastructure and the other for creating a computing resources.
+The Compute cloudFormation template deploys a load balancer and its dependencies needed to host the Jule-web application. The compute template includes security groups, an autoscaling group with its required launch configuration, target groups, and an IAM role for the compute instances.
 
-This CloudFormation template deploys a load balancer and its dependencies needed to host the Udagram web application. The template includes security groups, an autoscaling group with its required launch configuration, target groups, and an IAM role for the compute instances.
+## Prerequisites
+- AWS Account 
+- Iam User with the appropriate Permissions and Programmatic Acess 
+- AWS CLI installed and configured with access keys
+- AWS CloudFormation templates (Network and Compute)
+
 
 ## Parameters
 
-- **EnvironmentName**: A name that will be prefixed to resource names to enable easy identification. This is a string parameter.
+- **EnvironmentName**: A name that will be prefixed to resource names to enable easy identification. 
 
 ## Resources
 
@@ -31,5 +38,16 @@ To use the template, you will need to have the AWS CLI installed and configured 
 ## Note
 Please make sure to check and update the parameter values before running the scripts as per your requirement. Also, please update the ami-id as per the region you are running it. Also, You should check the `SecurityGroupIngress` and `SecurityGroupEgress` rules, as the current settings allow all incoming and outgoing traffic on port 80 which may not be appropriate.
 
-## Contribution
-Feel free to contribute to this repository by creating a pull request with any updates or changes you would like to make.
+
+
+## Additional Resources
+- [AWS CLI Documentation](https://aws.amazon.com/cli/)
+- [AWS CloudFormation Documentation](https://aws.amazon.com/cloudformation/)
+- [AWS VPC Documentation](https://aws.amazon.com/vpc/)
+- [AWS Security Groups Documentation](https://aws.amazon.com/security-groups/)
+
+## Contributing
+If you would like to contribute to this project, please create a pull request with a detailed explanation of your changes.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
