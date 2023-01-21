@@ -1,7 +1,8 @@
-FOR THE NETWORK INFRASTRUCTURE PLEASE RUN THIS AWS CLI COMMAND
+FOR THE CREATION OF THE NETWORK INFRASTRUCTURE PLEASE RUN THIS AWS CLI COMMAND.
 
 aws cloudformation create-stack  --stack-name Network --template-body file://network.yml  --parameters file://network-Parameters.json  --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" --region=us-east-1
 
+FOR THE CREATION OF THE COMPUTE RESOURCES PLEASE RUN THIS AWS CLI COMMAND.
 aws cloudformation create-stack  --stack-name Compute  --template-body file://Compute.yml  --parameters file://Compute-Parameters.json  --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" --region=us-east-1
 
 Note:  You can choose to turn these commands file to a Bash script for ease of running and reuseability 
