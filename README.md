@@ -2,11 +2,26 @@
 This project focuses on offering a step-by-step process for building a fault-tolerant Web application architecture on AWS using CloudFormation and the AWS CLI. The scripts are split into two sections: one for establishing the network infrastructure and the other for creating a computing resources.
 The Compute cloudFormation template deploys a load balancer and its dependencies needed to host the Jule-web application. The compute template includes security groups, an autoscaling group with its required launch configuration, target groups, and an IAM role for the compute instances.
 
+![jules](jules.jpeg)
+
+
 ## Prerequisites
 - AWS account with appropriate permissions to create and manage resources
 - Iam User with the appropriate Permissions and Programmatic Acess 
 - AWS CLI installed and configured with access keys
 - AWS CloudFormation templates (Network and Compute)
+
+## File Structure
+
+- `network-infrastructure.yaml`: CloudFormation template for provisioning network infrastructure
+- `network-parameters.json`: A sample file containing the parameters for the network infrastructure CloudFormation template
+- `compute-infrastructure.yaml`: CloudFormation template for provisioning compute infrastructure
+- `compute-parameters.json`: A sample file containing the parameters for the compute infrastructure CloudFormation template
+- `AWS CLI commands.txt`: A text file containing example AWS CLI commands for creating the stacks using the provided templates and parameters files
+- `Jules.jpeg`: An image file
+- `README.md`: This file
+
+
 
 
 ## Parameters
