@@ -1,6 +1,7 @@
 # Jules-Infrastructure-AWS-WebApplication
 This project focuses on offering a step-by-step process for building a fault-tolerant Web application architecture on AWS using CloudFormation and the AWS CLI. The scripts are split into two sections: one for establishing the network infrastructure and the other for creating a computing resources.
-The Compute cloudFormation template deploys a load balancer and its dependencies needed to host the Jule-web application. The compute template includes security groups, an autoscaling group with its required launch configuration, target groups, and an IAM role for the compute instances.
+
+The Network infrastructure cloudFormation script creates a VPC with a pair of public and private subnets spread across two availability zones. It also creates an Internet Gateway and NAT Gateways for the private subnets, along with the necessary routing and networking configurations. The script also includes parameters for customizing the IP ranges for the VPC and subnets, as well as an environment name for easy identification of resources while the compute cloudFormation script deploys a load balancer and its dependencies needed to host the Jule-web application. The compute template includes security groups, an autoscaling group with its required launch configuration, target groups, and an IAM role for the compute instances.
 
 ![jules](jules.jpeg)
 
@@ -25,10 +26,10 @@ The Compute cloudFormation template deploys a load balancer and its dependencies
 
 
 ## Parameters
+- `compute-parameters.json`
+- `network-parameters.json`
 
-- **EnvironmentName**: A name that will be prefixed to resource names to enable easy identification. 
-
-## Resources
+##  Compute Resources
 
 The template creates the following resources:
 
